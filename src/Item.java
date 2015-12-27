@@ -1,11 +1,12 @@
 public class Item {
+    private int quantity;
     private  String productName;
     private  double productCost;
     private  boolean isExempted;
     private  boolean isImported;
 
-    public Item(String productName, double ProductCost, boolean isExempted, boolean isImported) {
-
+    public Item(int quantity, String productName, double ProductCost, boolean isExempted, boolean isImported) {
+        this.quantity = quantity;
         this.productName = productName;
         productCost = ProductCost;
         this.isExempted = isExempted;
