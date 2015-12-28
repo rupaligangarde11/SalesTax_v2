@@ -3,7 +3,9 @@ public class InputParser {
 
     public Item parseInput(String input) {
         boolean isImported;
-        String productName;
+        boolean isExempted = false;
+
+        String productName = null;
         String[] formattedInput = input.split(" ");
         int quantity = Integer.parseInt(formattedInput[0]);
         if(formattedInput[1]=="imported") {
@@ -14,7 +16,16 @@ public class InputParser {
             isImported = false;
         }
 
+        productName= formattedInput[formattedInput.length-3];
+        if(productName.equals("book")||productName.equals("chocolate")||productName.equals("chocolates")||productName.equals("pills"))
+            isExempted = true;
         double productCost = Double.parseDouble(formattedInput[formattedInput.length-1]);
-        return item;
+        return new Item(quantity,productName,productCost,isExempted,isImported);
+    }
+
+
+    @Override
+    public String toString() {
+        return " ";
     }
 }
